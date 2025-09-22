@@ -1,0 +1,272 @@
+:root {
+    --session-background-color: #ffffff;
+    --session-primary-color: #fa193b;
+    --session-secondary-color: #e61736;
+    --session-text-color: #ffffff;
+}
+
+.session-body {
+    background: var(--session-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: var(--session-background-color);
+    overflow: hidden;
+}
+
+.session-sidebar {
+    background-color: var(--session-primary-color);
+    color: var(--session-text-color);
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+    align-items: center;
+    gap: 20px;
+    z-index: 3;
+}
+
+.session-sidebar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100px;
+}
+
+.session-content-accueil,
+.session-content-maths,
+.session-content-simulateurs,
+.session-content-jeux,
+.session-content-simulation_tirages,
+.session-content-marelle,
+.session-content-calculmental,
+.session-content-contact {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+}
+
+.session-content-calculatrice,
+.session-content-convertisseur,
+.session-content-simulation_notes {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 120vh;
+    width: 100%;
+}
+
+.session-content-simulation_code,
+.session-content-marelle2joueurslocal,
+.session-content-marelleia,
+.session-content-sudoku {
+    padding: 20px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 100px;
+    width: 100%;
+}
+
+.session-content-dames {
+    text-align: center;
+    background-color: #ffffff;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.70);
+    height: 120vh;
+    width: 100%;
+}
+
+.session-content h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.session-content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.session-import-container {
+    text-align: center;
+}
+
+.session-toggle-sidebar {
+    position: absolute;
+    right: 3%;
+}
+
+.session-toggle-sidebar:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 435px) {
+    .session-sidebar {
+        display: flex;
+    }
+
+    .session-contact {
+        display: block;
+        margin: -63.5px;
+        padding: 10px;
+        background-color: var(--session-primary-color);
+        color: var(--session-text-color);
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-decoration: none;
+        width: 200px;
+        box-sizing: border-box;
+        right: 400px;
+    }
+
+    .session-deconnexion {
+        display: block;
+        margin: -63.5px;
+        padding: 10px;
+        background-color: var(--session-primary-color);
+        color: var(--session-text-color);
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-decoration: none;
+        width: 200px;
+        box-sizing: border-box;
+        right: 150px;
+    }
+
+    .session-deconnexion:hover {
+        background-color: var(--session-secondary-color);
+    }
+}
+
+@media (max-width: 435px) {
+    .session-sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        transform: translateX(-90%);
+        padding: 10px;
+    }
+
+    .session-content {
+        margin-left: 30px;
+        padding-top: 20px;
+    }
+
+    .session-sidebar img {
+        width: 150px;
+        padding-left: 30%;
+    }
+
+    .session-sidebar .onglets {
+        padding-left: 30%;
+    }
+
+    .session-content h1 {
+        font-size: 32px;
+
+    }
+
+    .session-content p {
+        font-size: 18px;
+    }
+
+    .session-deconnexion {
+        display: block;
+        margin-left: 27.5%;
+        padding: 10px;
+        background-color: var(--session-primary-color);
+        color: var(--session-text-color);
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 20px;
+        text-decoration: none;
+        width: 200px;
+        box-sizing: border-box;
+    }
+
+    .session-deconnexion:hover {
+        background-color: var(--session-secondary-color);
+    }
+}
+
+.session-import-container label {
+    background-color: var(--session-primary-color);
+    border: none;
+    color: var(--session-text-color);
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.session-import-container label:hover {
+    background-color: var(--session-secondary-color);
+}
+
+.session-message {
+    padding: 15px;
+    color: var(--session-text-color);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: auto;
+}
+
+.session-button {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+    background-color: var(--session-primary-color);
+    border: none;
+    color: var(--session-text-color);
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+.session-button:hover {
+    background-color: var(--session-secondary-color);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--session-primary-color);
+    color: var(--session-text-color);
+    text-align: center;
+    padding: 1px;
+    z-index: 3;
+}

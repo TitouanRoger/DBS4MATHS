@@ -1,0 +1,74 @@
+:root {
+    --convertisseur-background-color: #ffffff;
+    --convertisseur-primary-color: #fa193b;
+    --convertisseur-secondary-color: #e61736;
+    --convertisseur-text-color: #000000;
+}
+
+.convertisseur {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--convertisseur-background-color);
+}
+
+.convertisseur-converter {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: var(--convertisseur-primary-color);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.convertisseur-select {
+    width: 95%;
+    height: 50px;
+    background-color: var(--convertisseur-background-color);
+    color: var(--convertisseur-text-color);
+    border: none;
+    text-align: left;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.convertisseur-unit {
+    width: 95%;
+    height: 50px;
+    background-color: var(--convertisseur-background-color);
+    color: var(--convertisseur-text-color);
+    border: none;
+    text-align: left;
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.convertisseur-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.convertisseur-button {
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--convertisseur-background-color);
+    color: var(--convertisseur-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.convertisseur-button:hover {
+    background-color: var(--convertisseur-secondary-color);
+}

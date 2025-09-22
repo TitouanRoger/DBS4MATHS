@@ -1,0 +1,294 @@
+:root {
+    --sudoku-grid-size: 450px;
+    --sudoku-cell-size: calc(var(--sudoku-grid-size) / 9);
+    --sudoku-border-thin: 1px solid #ddd;
+    --sudoku-border-thick: 2px solid #333;
+    --sudoku-main-color: #fa193b;
+    --sudoku-bg-color: #ffffff;
+    --sudoku-cell-bg: white;
+    --sudoku-readonly-bg: #e0e0e0;
+    --sudoku-incorrect-bg: #ffcccc;
+    --sudoku-correct-bg: #ccffcc;
+}
+
+.sudoku-body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--sudoku-bg-color);
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sudoku-title {
+    margin-bottom: 10px;
+}
+
+.sudoku-game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--sudoku-grid-size);
+    margin: 10px auto;
+    font-weight: bold;
+}
+
+.sudoku-timer,
+.sudoku-best-time {
+    flex: 1;
+    text-align: center;
+}
+
+.sudoku-controls {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    width: calc(var(--sudoku-grid-size) * 0.8);
+    height: calc(var(--sudoku-grid-size) * 0.8);
+    background-color: white;
+    margin-bottom: 10px;
+    margin: 0 auto;
+}
+
+.sudoku-grid input {
+    width: calc(var(--sudoku-cell-size) * 0.8);
+    height: calc(var(--sudoku-cell-size) * 0.8);
+    border: var(--sudoku-border-thin);
+    text-align: center;
+    font-size: 16px;
+    background-color: var(--sudoku-cell-bg);
+    margin: 0;
+    padding: 0;
+}
+
+.sudoku-grid input.sudoku-pre-filled {
+    background-color: var(--sudoku-readonly-bg);
+    font-weight: bold;
+}
+
+.sudoku-grid input.sudoku-incorrect {
+    background-color: var(--sudoku-incorrect-bg);
+}
+
+.sudoku-grid input.sudoku-correct {
+    background-color: var(--sudoku-correct-bg);
+}
+
+.sudoku-grid input:nth-child(3n) {
+    border-right: var(--sudoku-border-thick);
+}
+
+.sudoku-grid input:nth-child(n+19):nth-child(-n+27),
+.sudoku-grid input:nth-child(n+46):nth-child(-n+54),
+.sudoku-grid input:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: var(--sudoku-border-thick);
+}
+
+.sudoku-grid input:nth-child(9n+1) {
+    border-left: var(--sudoku-border-thick);
+}
+
+.sudoku-grid input:nth-child(-n+9) {
+    border-top: var(--sudoku-border-thick);
+}
+
+.sudoku-button,
+.sudoku-select {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sudoku-button {
+    background-color: var(--sudoku-main-color);
+    color: white;
+    border: none;
+}
+
+.sudoku-button:hover {
+    opacity: 0.9;
+}
+
+.sudoku-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.verify-button {
+    display: flex;
+    margin: 0 auto;
+}
+
+#sudoku-verifier {
+    margin-top: 10px;
+}
+
+@keyframes sudoku-shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.sudoku-shake {
+    animation: sudoku-shake 0.5s ease-in-out;
+}
+
+.sudoku-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.sudoku-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#sudoku-popup-close {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--sudoku-main-color);
+    color: white;
+    border: none;
+}
+
+#sudoku-popup-close:hover {
+    opacity: 0.9;
+}
+
+.sudoku-regles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.sudoku-regles-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    max-width: 600px;
+    width: 80%;
+}
+
+#sudoku-regles-close {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--sudoku-main-color);
+    color: white;
+    border: none;
+}
+
+#sudoku-regles-close:hover {
+    opacity: 0.9;
+}
+
+.sudoku-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.sudoku-loading-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.sudoku-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--sudoku-main-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        --sudoku-grid-size: 90vw;
+    }
+
+    .sudoku-grid input {
+        font-size: 16px;
+    }
+
+    .sudoku-body {
+        padding: 10px;
+    }
+
+    .sudoku-title {
+        font-size: 24px;
+    }
+
+    .sudoku-controls {
+        flex-direction: column;
+    }
+}

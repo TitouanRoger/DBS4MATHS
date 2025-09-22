@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+form>* {
+    flex-basis: calc(50% - 1em);
+}
+
+form>label {
+    margin-bottom: 0.5em;
+}
+
+form>label:nth-child(2n) {
+    margin-left: 1em;
+}
+
+form>textarea {
+    height: 10em;
+    flex-basis: 100%;
+}
+
+form>button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+    margin: 1em;
+    display: block;
+    flex-basis: 100%;
+}
+
+form>.message {
+    flex-basis: 100%;
+    margin-top: 1em;
+    text-align: center;
+}

@@ -1,0 +1,150 @@
+:root {
+    --marelle-background-color: #ffffff;
+    --marelle-primary-color: #fa193b;
+    --marelle-secondary-color: #e61736;
+    --marelle-text-color: #ffffff;
+}
+
+.marelle-body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--marelle-background-color);
+}
+
+.marelle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+}
+
+.marelle-cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--marelle-primary-color);
+    border: 5px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.marelle-selected {
+    background-color: lightgreen;
+}
+
+.marelle-player-X {
+    color: blue;
+}
+
+.marelle-player-O {
+    color: green;
+}
+
+.marelle-status {
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--marelle-primary-color);
+}
+
+.marelle-button {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--text-color);
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+.marelle-rules-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--marelle-primary-color);
+    color: var(--marelle-text-color);
+    border: 2px solid var(--marelle-primary-color);
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.marelle-rules-button:hover {
+    background-color: var(--marelle-text-color);
+    color: var(--marelle-primary-color);
+}
+
+.marelle-rules {
+    width: 80%;
+    max-width: 600px;
+    background: var(--marelle-primary-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: var(--marelle-text-color);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    z-index: -1;
+}
+
+.marelle-rules.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.marelle-restart-button {
+    background-color: var(--marelle-primary-color);
+    color: white;
+    border: 2px solid var(--marelle-primary-color);
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    margin-top: 12px;
+}
+
+.marelle-restart-button:hover {
+    background-color: var(--marelle-text-color);
+    color: var(--marelle-primary-color);
+    border: 2px solid var(--marelle-primary-color);
+}
+
+.marelle-level-button {
+    background-color: var(--marelle-primary-color);
+    color: var(--marelle-text-color);
+    border: 2px solid var(--marelle-primary-color);
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    margin-top: 2px;
+}
+
+.marelle-level-button:hover {
+    background-color: var(--marelle-text-color);
+    color: var(--marelle-primary-color);
+    border: 2px solid var(--marelle-primary-color);
+}

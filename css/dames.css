@@ -1,0 +1,165 @@
+.dames-body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #ffffff;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dames-title {
+    color: #ff4d4d;
+    margin-top: 20px;
+    font-size: 2.5em;
+}
+
+.dames-board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-gap: 2px;
+    margin: 0 auto;
+    background-color: #2c2c2c;
+    border: 10px solid #000000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.dames-cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.dames-cell.white {
+    background-color: #f5f5dc;
+}
+
+.dames-cell.black {
+    background-color: #8b0000;
+}
+
+.dames-cell:hover {
+    background-color: #ff6666;
+    cursor: pointer;
+}
+
+.dames-piece {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dames-piece:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ff4d4d;
+}
+
+.dames-white-piece {
+    background-color: white;
+}
+
+.dames-black-piece {
+    background-color: black;
+}
+
+.dames-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.dames-button:hover {
+    background-color: #ff6666;
+}
+
+.dames-currentTurn {
+    color: black;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.dames-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dames-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    text-align: left;
+    color: black;
+}
+
+.dames-modal-content h2 {
+    margin-top: 0;
+}
+
+.dames-modal-content p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.dames-modal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dames-modal .close:hover,
+.dames-modal .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.dames-rulesButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dames-rulesButton:hover {
+    background-color: #ff6666;
+}
