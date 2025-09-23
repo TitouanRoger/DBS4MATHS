@@ -1,6 +1,6 @@
 <?php
 // Fichier compteur 
-$fichier = "compteur.txt";
+$fichier = "viewstats.txt";
 
 // Lire la valeur actuelle
 if (file_exists($fichier)) {

@@ -156,15 +156,46 @@
             <a class="onglets" href="?page=simulateurs">Simulateurs</a>
             <br>
             <a class="onglets" href="?page=jeux">Jeux</a>
-            <a href="?page=contact" class="session-contact"
-                style="position: absolute; bottom: 100px;">Contact</a>
+            <a href="?page=contact" class="session-contact" style="position: absolute; bottom: 100px;">Contact</a>
             <a href="session.php?logout=true" class="session-deconnexion"
                 style="position: absolute; bottom: 100px;">Deconnexion</a>
         </div>
         <!-- Default content can go here -->
         <?php
+        // Fonction pour enregistrer les statistiques
+        function enregistrerStatistique($fonctionnalite)
+        {
+            $fichier = __DIR__ . '/stats.txt';
+            $stats = [];
+
+            // Lire les statistiques existantes
+            if (file_exists($fichier)) {
+                $lines = file($fichier, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                foreach ($lines as $line) {
+                    list($key, $value) = explode(':', $line, 2);
+                    $stats[$key] = (int) $value;
+                }
+            }
+
+            // Incrémenter la fonctionnalité utilisée
+            if (isset($stats[$fonctionnalite])) {
+                $stats[$fonctionnalite]++;
+            } else {
+                $stats[$fonctionnalite] = 1;
+            }
+
+            // Sauvegarder les statistiques
+            $fp = fopen($fichier, 'w');
+            foreach ($stats as $key => $value) {
+                fwrite($fp, "$key:$value\n");
+            }
+            fclose($fp);
+        }
+
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
+            enregistrerStatistique($page); // Enregistre chaque utilisation
+    
             ?>
             <div class="session-content-<?php echo $page ?>" id="content">
                 <?php
@@ -191,8 +222,7 @@
                         ?>
                         <div class="session-import-container">
                             <div style="position: relative;">
-                                <div id="ajax-content"
-                                    style="max-height: 550px; overflow-y: auto;">
+                                <div id="ajax-content" style="max-height: 550px; overflow-y: auto;">
                                     <?php
                                     include 'simulation_code.php';
                                     ?>
