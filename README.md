@@ -8,11 +8,11 @@ Année 2024-2025
 ## 1. Introduction
 
 ### 1.1 Contexte et objectif du projet
-Ce projet, un devoir de première année pour le programme **BTS SIO**, vise à créer une application amusante et utile avec des outils mathématiques. La date de livraison finale du projet est le **4 mars 2025**.
+Ce projet, un devoir pour le programme **BTS SIO**, vise à créer une application amusante et utile avec des outils mathématiques. La date de livraison finale du projet est le **4 mars 2025**.
 
 ### 1.2 Parties prenantes
 * **Client** : Digital Business School
-* **Fournisseur** : Digital Business School, classe de BTS SIO1
+* **Fournisseur** : Digital Business School, classe de BTS SIO
 * **Utilisateurs finaux** : Administrateur, équipe pédagogique (intervenants), étudiants
 
 ---
@@ -32,7 +32,7 @@ Le projet consiste à développer une **application web responsive** qui offre u
 ## 3. Exigences techniques
 
 ### 3.1 Contraintes
-Le projet doit utiliser les langages suivants : **HTML, PHP, CSS et JAVASCRIPT**. Il doit également se conformer au Règlement Général sur la Protection des Données (**RGPD**). L'application doit être responsive, ce qui signifie qu'elle s'adapte et fonctionne sur tous les types d'écrans (ordinateurs, smartphones et tablettes).
+Le projet doit utiliser les langages suivants : **HTML, CSS, PHP et JAVASCRIPT**. Il doit également se conformer au Règlement Général sur la Protection des Données (**RGPD**). L'application doit être responsive, ce qui signifie qu'elle s'adapte et fonctionne sur tous les types d'écrans (ordinateurs, smartphones et tablettes).
 
 ---
 
@@ -52,7 +52,7 @@ L'équipe de projet comprend 1 chef de projet technique, 2 développeurs experts
 
 ## Guide Utilisateur DBS for Maths
 
-### Version ALPHA 2.0
+### Version 1.0
 
 ---
 
@@ -68,7 +68,7 @@ Pour vous connecter, rendez-vous sur `https://dbs4maths.adkynet.eu`, entrez votr
 
 ## 2. Navigation et Interface
 
-L'interface de DBS for Maths est conçue pour être intuitive et facile à utiliser.
+L'interface de DBS4MATHS est conçue pour être intuitive et facile à utiliser.
 
 ### 2.1 Menu principal
 Après vous être connecté, la page d'accueil apparaît. Le menu principal et ses fonctionnalités sont accessibles via des onglets en haut de la page. Le bouton "Déconnexion" vous permet de vous déconnecter.
