@@ -154,7 +154,8 @@ echo "</form>";
 
 // Affichage des stats pour la date sélectionnée
 if ($selectedDate) {
-    $nbVuesDate = 0 + $dates[$selectedDate];
+    $dates = lireDates();
+    $nbVuesDate = isset($dates[$selectedDate]) ? $dates[$selectedDate] : 0;
     echo "<div style='text-align:center;margin:20px;'><strong>Nombre de visites pour le $selectedDate :</strong> $nbVuesDate</div>";
 
     $statsPagesDate = lireStatsPagesParDate($selectedDate);
