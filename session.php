@@ -162,7 +162,7 @@
         </div>
         <!-- Default content can go here -->
         <?php
-        // Fonction pour enregistrer les statistiques
+        // Fonction pour enregistrer les statistiques par page et par date (du plus récent au plus ancien)
         function enregistrerStatistique($fonctionnalite)
         {
             $fichier = __DIR__ . '/stats.txt';
@@ -172,22 +172,41 @@
             if (file_exists($fichier)) {
                 $lines = file($fichier, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                 foreach ($lines as $line) {
-                    list($key, $value) = explode(':', $line, 2);
-                    $stats[$key] = (int) $value;
+                    // page_nom_YYYY-MM-DD:count
+                    if (preg_match('/^page_(.+)_(\d{4}-\d{2}-\d{2}):(\d+)/', $line, $matches)) {
+                        $page = $matches[1];
+                        $date = $matches[2];
+                        $count = (int) $matches[3];
+                        if (!isset($stats[$page]))
+                            $stats[$page] = [];
+                        $stats[$page][$date] = $count;
+                    }
                 }
             }
 
-            // Incrémenter la fonctionnalité utilisée
-            if (isset($stats[$fonctionnalite])) {
-                $stats[$fonctionnalite]++;
-            } else {
-                $stats[$fonctionnalite] = 1;
+            // Incrémenter la date du jour pour la page
+            $today = date('Y-m-d');
+            if (!isset($stats[$fonctionnalite]))
+                $stats[$fonctionnalite] = [];
+            $stats[$fonctionnalite][$today] = isset($stats[$fonctionnalite][$today]) ? $stats[$fonctionnalite][$today] + 1 : 1;
+
+            // Calculer le total pour chaque page
+            $totaux = [];
+            foreach ($stats as $page => $dates) {
+                $totaux[$page] = array_sum($dates);
             }
 
-            // Sauvegarder les statistiques
+            // Sauvegarder les statistiques (pages, dates du plus récent au plus ancien)
             $fp = fopen($fichier, 'w');
-            foreach ($stats as $key => $value) {
-                fwrite($fp, "$key:$value\n");
+            foreach ($totaux as $page => $total) {
+                fwrite($fp, "total_{$page}:{$total}\n");
+            }
+            foreach ($stats as $page => $dates) {
+                // Trier les dates du plus récent au plus ancien
+                krsort($dates);
+                foreach ($dates as $date => $value) {
+                    fwrite($fp, "page_{$page}_{$date}:{$value}\n");
+                }
             }
             fclose($fp);
         }
@@ -195,7 +214,6 @@
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             enregistrerStatistique($page); // Enregistre chaque utilisation
-    
             ?>
             <div class="session-content-<?php echo $page ?>" id="content">
                 <?php
@@ -223,9 +241,7 @@
                         <div class="session-import-container">
                             <div style="position: relative;">
                                 <div id="ajax-content" style="max-height: 550px; overflow-y: auto;">
-                                    <?php
-                                    include 'simulation_code.php';
-                                    ?>
+                                    <?php include 'simulation_code.php'; ?>
                                 </div>
                             </div>
                         </div>
@@ -261,9 +277,7 @@
                     <div class="session-import-container">
                         <div style="position: relative;">
                             <div id="ajax-content" style="max-height: 550px; overflow-y: auto;">
-                                <?php
-                                include 'calculmental.php';
-                                ?>
+                                <?php include 'calculmental.php'; ?>
                             </div>
                         </div>
                     </div>
