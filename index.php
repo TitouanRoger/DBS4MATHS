@@ -2,6 +2,14 @@
 <html lang="fr">
 
 <head>
+    <meta name="google-site-verification" content="WdYROnlQPiAagI7jJB7m827QhhERYpW5XeoM47bI_I8" />
+
+    <meta name="description"
+        content="DBS4MATHS - Plateforme d'apprentissage complète des mathématiques : calculatrice, convertisseur, simulateurs (notes, code, tirages) et jeux éducatifs (Sudoku, Puissance 4, Dames, Calcul mental).">
+    <meta name="keywords"
+        content="mathématiques, DBS4MATHS, apprentissage, exercices, outils, calculatrice, convertisseur, simulateurs, notes, code, tirages, jeux éducatifs, sudoku, puissance 4, dames, calcul mental, élèves, enseignants">
+    <meta name="author" content="DBS4MATHS">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
